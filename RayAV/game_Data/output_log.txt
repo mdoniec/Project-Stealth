@@ -1,0 +1,42 @@
+Initialize engine version: 4.5.1f3 (73cd57f80e3e)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 660 Ti (ID=0x1183)
+    Vendor:   NVIDIA
+    VRAM:     1989 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\ProBuilderCore.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\ProBuilderCore.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\ProBuilderMeshOps.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\ProBuilderMeshOps.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\ProCore.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\ProCore.dll into Unity Child Domain
+Platform assembly: C:\Users\Karlos\Documents\RayAV\game_Data\Managed\SixBySeven.dll (this message is harmless)
+Loading C:\Users\Karlos\Documents\RayAV\game_Data\Managed\SixBySeven.dll into Unity Child Domain
+- Completed reload, in  0.757 seconds
+desktop: 1920x1080 120Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1783)
+
+HDR RenderTexture format is not supported on this platform. This camera will render without HDR buffers.
+ 
+(Filename:  Line: 2501)
+
+HDR RenderTexture format is not supported on this platform. This camera will render without HDR buffers.
+ 
+(Filename:  Line: 2501)
+
