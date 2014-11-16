@@ -98,6 +98,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{167AB4C3-007F-41C6-2785-C1B191886825}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">
       <Project>{FA89D47C-947D-0E2E-3E76-D23E1D536F81}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
   </ItemGroup>
