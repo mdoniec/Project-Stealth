@@ -67,16 +67,16 @@
      <None Include="Assets\ProCore\Prototype\About\changelog.txt" />
      <None Include="Assets\ProCore\Prototype\Shader\VertexBillboard.shader" />
      <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColor.shader" />
-     <None Include="Assets\Breakable Glass\Shaders\SimpleGlass.shader" />
      <None Include="Assets\ProCore\Shared\About\README.txt" />
      <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
-     <None Include="Assets\Breakable Glass\README.txt" />
+     <None Include="Assets\Stuff\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Stuff\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\ProCore\Prototype\Shader\UnlitColor.shader" />
      <None Include="Assets\ProCore\Prototype\About\pc_AboutEntry_ProBuilder.txt" />
-     <None Include="Assets\torch\readme.txt" />
+     <None Include="Assets\Stuff\Torch\readme.txt" />
      <None Include="Assets\ProCore\Prototype\Shader\UnlitColor-Overlay.shader" />
      <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorEmission.shader" />
-     <None Include="Assets\FootstepsSoundsCarpetPack\FootstepsSoundsCarpetPackInfo.txt" />
+     <None Include="Assets\Music\FootstepsSoundsCarpetPack\FootstepsSoundsCarpetPackInfo.txt" />
      <None Include="Assets\ProCore\Prototype\About\Credits.txt" />
  <Reference Include="ProBuilderCore">
  <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/RayAV/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
