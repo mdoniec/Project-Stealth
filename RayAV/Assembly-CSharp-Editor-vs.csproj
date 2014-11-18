@@ -72,6 +72,7 @@
      <None Include="Assets\Stuff\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Stuff\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\ProCore\Prototype\Shader\UnlitColor.shader" />
+     <None Include="Assets\license.txt" />
      <None Include="Assets\ProCore\Prototype\About\pc_AboutEntry_ProBuilder.txt" />
      <None Include="Assets\Stuff\Torch\readme.txt" />
      <None Include="Assets\ProCore\Prototype\Shader\UnlitColor-Overlay.shader" />
@@ -79,22 +80,22 @@
      <None Include="Assets\Music\FootstepsSoundsCarpetPack\FootstepsSoundsCarpetPackInfo.txt" />
      <None Include="Assets\ProCore\Prototype\About\Credits.txt" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/RayAV/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>C:/Users/Maciej/Documents/GITHUB/RayAV/Project-Stealth/Project-Stealth/RayAV/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/RayAV/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/Maciej/Documents/GITHUB/RayAV/Project-Stealth/Project-Stealth/RayAV/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps">
- <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/RayAV/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps.dll</HintPath>
+ <HintPath>C:/Users/Maciej/Documents/GITHUB/RayAV/Project-Stealth/Project-Stealth/RayAV/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderEditor">
- <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/RayAV/Assets/ProCore/Prototype/Editor/ProBuilderEditor.dll</HintPath>
+ <HintPath>C:/Users/Maciej/Documents/GITHUB/RayAV/Project-Stealth/Project-Stealth/RayAV/Assets/ProCore/Prototype/Editor/ProBuilderEditor.dll</HintPath>
  </Reference>
  <Reference Include="ProCore">
- <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/RayAV/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
+ <HintPath>C:/Users/Maciej/Documents/GITHUB/RayAV/Project-Stealth/Project-Stealth/RayAV/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/RayAV/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/Maciej/Documents/GITHUB/RayAV/Project-Stealth/Project-Stealth/RayAV/Assets/ProCore/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
