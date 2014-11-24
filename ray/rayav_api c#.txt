@@ -1,0 +1,77 @@
+namespace rayav_csharp
+{
+    public enum SoundSourceAttenuation
+    {
+        Nothing = 0,
+        DivByDistance = 1, // 1 / r
+        DivByTwoDistance = 2, // 1/2r
+        DivBySquareDistance = 3, // 1 / r^2
+        DivByRlogR = 4, // 1 / (rlogr)
+        DivByInvLog = 5, // 1 / (1 + log10(1/r^2)/4)
+        Tweak = 6
+    };
+
+    public enum CoordinateSystemType
+    {
+        Left_Handed_Cartesian = 0,
+        Right_Handed_Cartesian = 1
+    };
+
+    public static class Audio
+    {
+        private static string GetParentsParentPath(string path)
+        {
+            string parent = path.Substring(0, path.LastIndexOf("\\"));
+            return parent.Substring(0, parent.LastIndexOf("\\"));
+        }
+
+        public static bool Initialize(string configPath);
+
+        public static void Flush(uint timeDiffMsec);
+
+        public static void SetReceiver(Vector3 pos, Vector3 fwd, Vector3 up);
+
+        public static SoundSourceHandle AddSoundSource(Vector3 pos, SoundSourceAttenuation attenuation);
+
+        public static SoundSourceHandle AddDirectedSoundSource(Vector3 pos, Vector3 fwd, Vector3 up, SourceDirectivityHandle directivity, SoundSourceAttenuation attenuation);
+
+        public static void SetSoundSource(SoundSourceHandle source, Vector3 pos, Vector3 fwd, Vector3 up);
+
+        public static void SetSoundSourcePosition(SoundSourceHandle source, Vector3 position);
+
+        public static void DeleteSoundSource(SoundSourceHandle source);
+
+        public static SourceDirectivityHandle RegisterSourceDirectivity(string directivityFilePath);
+        public static void UnregisterSourceDirectivity(SourceDirectivityHandle directivity);
+
+        public static bool IsSourceDirectivityLoaded(SourceDirectivityHandle directivity);
+
+        public static void SetSourceVolume(SoundSourceHandle source, float volumeFrom0To1);
+
+        public static void SetPlaybackVolume(PlaybackHandle playback, float volumeFrom0To1);
+
+        public static void SetGlobalVolume(float volumeFrom0To1);
+
+        public static SoundSampleHandle RegisterSample(string sampleFilePath);
+
+        public static void UnregisterSample(SoundSampleHandle sample);
+
+        public static bool IsSoundSampleLoaded(SoundSampleHandle sample);
+
+        public static PlaybackHandle Play(SoundSampleHandle sample, SoundSourceHandle source);
+
+        public static void PauseSource(SoundSourceHandle source);
+
+        public static void PausePlayback(PlaybackHandle playback);
+
+        public static void ResumeSource(SoundSourceHandle source);
+
+        public static void ResumePlayback(PlaybackHandle playback);
+
+        public static void StopSource(SoundSourceHandle source);
+
+        public static void StopPlayback(PlaybackHandle playback);
+
+        public static void Shutdown();
+    }
+}

@@ -1,0 +1,151 @@
+#--------------Scene file-----------------------------
+
+scene file=assets/models/TwoRooms/TwoRooms.rmf
+
+vis=vis_spaceStation.txt
+
+visscene = assets/models/TwoRooms/TwoRooms_visual.obj
+visscene_materials = assets/vismaterials/TwoRooms
+#visscene_materials_gen = assets/vismaterials/TwoRooms
+use paths=true
+#------------------------------------------------------
+
+#------------------Animation options--------------------
+paths file=assets/models/korytarzWplywMaterialow/korytarzWplywMaterialow_anim2.dae
+animation speed=1
+#------------------------------------------------------
+
+#------------------Geometry options--------------------
+adfrustum accuracy=4
+use varying beam accuracy=false
+adfrustum generation 0 accuracy=4
+adfrustum generation 1 accuracy=3
+adfrustum generation 2 accuracy=3
+adrayfrustum generation 0 preprocessing level=1
+adrayfrustum generation 1 preprocessing level=0
+adrayfrustum generation 2 preprocessing level=0
+# WARNING!
+# for SSE version, [adrayfrustum preprocessing level] must be at most equal to [adfrustum accuracy]-2
+#      for AVX version, [adrayfrustum preprocessing level] must be at most equal to [adfrustum accuracy]-3
+adrayfrustum preprocessing level=1
+
+max beam generation=3
+
+## common options ##
+enable beam merging=true
+enable beam reflection=true
+enable beam transmission=true
+enable beam diffraction=true
+max geometry tree depth=10
+trigger triangle count for geometry tree cell subdivision=10
+
+enable sound processing=true
+use triangle based beams=true
+#------------------------------------------------------
+
+#------------------------------------------------------
+
+#-------------Effects and materials--------------------
+enable air absorption=true
+reference materials directory=assets/materials/ReferenceMaterials/
+materials directory=assets/materials/DifferentMaterials/
+use default instead of inaccessible material=true
+enable doppler effect=false
+SPL threshold=-60 #dB max value: 0 dB
+RMS difference between parent and child diffraction beam = -3; # dB.
+HRTF=assets/hrtf/tuberlin.dat
+BQC_HRTF=assets/hrtf/bqc_hrtf.dat
+#HRTF=assets/hrtf/KemarCompact.dat
+diffraction table path=assets/diffraction_tables/diffraction_table_100_20.dat
+use interpolated diffraction=true
+use headphones=true
+
+#------------------------------------------------------
+
+#-------------------General----------------------------
+dump output to file=false
+recorded sounds=assets/wavs/
+recorded sound filename=output23_01.wav
+#------------------------------------------------------
+
+#-------------Filters configuration--------------------
+sampling frequency=48000
+spectrum length=257
+interpolation mode=Linear
+#------------------------------------------------------
+
+#----------------Receiver position--------------------
+
+# if receiver in camera is false the use position:
+receiver position=-9.58 2.0 -0.19#-11.0 2.0 -5.0
+receiver use path=true
+receiver path=Cube_001
+#------------------------------------------------------
+
+#---------------------Sound Sources--------------------------
+sound source count=2
+#---------------------Source 0-------------------------
+source 0 input audio=assets/wavs/Speech/Weathercast.ogg
+#source 0 input audio=assets/wavs/Speech/Weathercast_tvNoise.ogg
+#source 0 input audio=assets/wavs/Music/Motorhead - Ace Of Spades.ogg
+source 0 position=-17.04 1.44 -5.8 
+source 0 name=BBC News 1
+source 0 color=1.0 1.0 0.9 #0.0 0.67 1.0
+source 0 use path=false
+source 0 attenuation with distance = 1/r
+# Another options for attenuation
+# nothing, 1/rlogr, invLog, 1/r^2, 1/r
+
+#---------------------Source 1-------------------------
+source 1 input audio=assets/wavs/Speech/Weathercast.ogg
+#source 1 input audio=assets/wavs/Speech/Weathercast_tvNoise.ogg
+#source 1 input audio=assets/wavs/Music/Motorhead - Ace Of Spades.ogg
+source 1 position=-17.05 1.44 6.2
+source 1 name=BBC News 2
+source 1 color=1.0 1.0 0.9 
+source 1 use path=false
+source 1 attenuation with distance = 1/r
+# Another options for attenuation
+# nothing, 1/rlogr, invLog, 1/r^2, 1/r
+
+#----------------Effects debugging---------------------
+
+#------------------------------------------------------
+
+#----------------Synthesis debugging--------------------
+use audio diagnostics=false
+#-------------------------------------------------------
+
+#----------------Miscallineous--------------------------
+# Shows big red moving box in new viewer
+dynamic mesh test=false
+
+
+
+
+
+#-------------------------------------------------------
+
+#----------------Time Tracker--------------------------
+enable time tracking=false
+enable report generator for generic=true
+enable report generator for synthesis=true
+enable report generator for geometry=false
+enable report generator for effects=false
+#-------------------------------------------------------
+
+import assets/sources.txt
+
+#Reverb file
+
+#import assets/configurations_final/reverb_two_rooms.txt
+import assets/configurations_final/reverb_two_rooms_v2.txt
+
+#Filters noise
+import assets/filterconfig.txt
+
+#Pipelines configuration
+import assets/configurations_final/TwoRooms_pipelinesconfig.txt
+
+#Compressor
+import assets/compressorconfig.txt
