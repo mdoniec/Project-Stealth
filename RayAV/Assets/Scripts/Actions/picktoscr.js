@@ -49,10 +49,58 @@ objectPos = transform.position;
 
 objectRot = transform.rotation;
 
+canpick = true; 
+
+//THROW
+
+if(Input.GetMouseButtonDown(0) && picking)
+{
+picking = false;
+canpick = false; 
+pickObj.rigidbody.constraints = RigidbodyConstraints.None;
+pickObj.rigidbody.useGravity=true;
+pickObj.rigidbody.isKinematic = false;
+pickObj.transform.parent = null;
+pickObj.collider.isTrigger = false;
+pickObj.rigidbody.AddForce (transform.right * strength);
+ pickObj = pickref;
+ emptyj.transform.position = transform.position;
+ parentjoint.connectedBody = emptyj.rigidbody;
+
+
+
+}
+
+
+
+// RELEASE
+if(Input.GetMouseButtonDown(1) && picking   ) 
+
+
+{ 
+picking = false;
+canpick = false; 
+pickObj.rigidbody.useGravity=true;
+pickObj.rigidbody.isKinematic = false;
+pickObj.rigidbody.constraints = RigidbodyConstraints.None ;
+pickObj.transform.parent = null;
+
+pickObj.collider.isTrigger = false; pickObj = pickref;
+emptyj.transform.position = transform.position;
+ parentjoint.connectedBody = emptyj.rigidbody;
+ 
+}
+
+
+
 if(Input.GetMouseButtonDown(0) && canpick && guipick){
 picking = true;
 var ray:Ray=Camera.main.ScreenPointToRay(Input.mousePosition);
 var hit: RaycastHit;
+
+
+
+
 
 
 //PICKUP
@@ -69,6 +117,7 @@ if (Physics.Raycast(ray, hit, 1) && hit.collider.gameObject.tag == "pickup")
 
  parentjoint = transform.parent.GetComponent(ConfigurableJoint);
  parentjoint.connectedBody= hit.rigidbody;
+ 
  //hit.transform.parent = gameObject.transform.parent.transform.parent.transform; 
  
  //hit.rigidbody.constraints = RigidbodyConstraints.FreezePositionX |RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ ;
@@ -81,51 +130,13 @@ pickdistance = Vector3.Magnitude(gameObject.transform.position-pickObj.transform
 }
 
 } 
-
-
-
-//THROW
-if(Input.GetMouseButtonUp(0) && picking && !canpick){
-picking = false;
-canpick = false;
-}
-if(Input.GetMouseButtonDown(0) && !canpick && pickObj.GetComponent(pickedupobj).refusethrow !=true)
-{
-canpick = true; 
-pickObj.rigidbody.constraints = RigidbodyConstraints.None;
-pickObj.rigidbody.useGravity=true;
-pickObj.rigidbody.isKinematic = false;
-pickObj.transform.parent = null;
-pickObj.collider.isTrigger = false;
-pickObj.rigidbody.AddForce (transform.right * strength);
- pickObj = pickref;
- 
- parentjoint.connectedBody = emptyj.rigidbody;
-
-
 }
 
 
-
-// RELEASE
-if(Input.GetMouseButtonDown(1) && picking  && !canpick && pickObj.GetComponent(pickedupobj).refusethrow !=true) 
-
-
-{ canpick = true; 
-pickObj.rigidbody.useGravity=true;
-pickObj.rigidbody.isKinematic = false;
-pickObj.rigidbody.constraints = RigidbodyConstraints.None ;
-pickObj.transform.parent = null;
-
-pickObj.collider.isTrigger = false; pickObj = pickref;
- parentjoint.connectedBody = emptyj.rigidbody;
-}
-
-}
 
 function OnGUI () {
 
-if (guipick && canpick){
+if (guipick && canpick && !picking){
 GUI.Label (Rect (Screen.width/2,Screen.height/2,Screen.width/2,Screen.height/2), "Pick Up");
 }
 }
