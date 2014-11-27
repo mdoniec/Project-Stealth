@@ -127,6 +127,7 @@ if (Physics.Raycast(ray, hit, 1) && hit.collider.gameObject.tag == "pickup")
 //hit.transform.position= gameObject.transform.position;
 
  parentjoint = transform.parent.GetComponent(ConfigurableJoint);
+ 
  parentjoint.connectedBody= hit.rigidbody;
  
  //hit.transform.parent = gameObject.transform.parent.transform.parent.transform; 
