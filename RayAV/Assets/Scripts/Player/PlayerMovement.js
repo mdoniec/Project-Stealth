@@ -1,7 +1,7 @@
 ﻿#pragma strict
-var moveAcc = 2000;
-var maxSpeed = 120;
-var JumpForce =200;
+var moveAcc = 120;
+var maxSpeed = 80;
+var JumpForce =250;
 
 
 var runForce = 0;
@@ -46,18 +46,18 @@ rigidbody.AddForce(Vector3(transform.forward.x * moveAcc,0,transform.forward.z *
 
 //move "backward"
 if (Input.GetAxis("Vertical")<0){
-rigidbody.AddForce(Vector3(-transform.forward.x * moveAcc/1.4,-transform.forward.z * moveAcc/1.4));
+rigidbody.AddForce(Vector3(-transform.forward.x * moveAcc,0,-transform.forward.z * moveAcc));
 }
 
 // move left
 if (Input.GetAxis ("Horizontal")<0){
-rigidbody.AddForce(Vector3(-transform.right.x * moveAcc/1.2,0,-transform.right.z * moveAcc/1.2));
+rigidbody.AddForce(Vector3(-transform.right.x * moveAcc,0,-transform.right.z * moveAcc));
 }
 
 
 //move right
 if (Input.GetAxis ("Horizontal")>0){
-rigidbody.AddForce(Vector3(transform.right.x * moveAcc/1.2,0,transform.right.z * moveAcc/1.2));
+rigidbody.AddForce(Vector3(transform.right.x * moveAcc,0,transform.right.z * moveAcc));
 }
 }
 

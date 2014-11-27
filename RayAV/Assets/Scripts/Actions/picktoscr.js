@@ -3,13 +3,15 @@
 #pragma strict
 var objectPos : Vector3;
 
-var strength : int = 10;
+var strength : int = 300;
 
 var objectRot : Quaternion;
 
 var pickObj : GameObject;
 
 var canpick = true;
+
+var timer = 200;
 
 var picking = false;
 
@@ -23,19 +25,26 @@ var pickdistance : float ;
 
 var emptyj : GameObject;
 
+var hand :Texture2D;
+
+var fist :Texture2D;
+
 var parentjoint : ConfigurableJoint;
+
+var hitcheck: RaycastHit;
 
 function Start () {
 
 pickref = GameObject.FindWithTag ("pickupref");
 emptyj = GameObject.FindWithTag ("emptyjoint");
 pickObj = pickref;
-
+hand = Resources.LoadAssetAtPath("Assets/icons/hand.png",typeof(Texture2D)) as Texture2D; ;
+fist = Resources.LoadAssetAtPath("Assets/icons/fist.png",typeof(Texture2D)) as Texture2D; ;
 }
 function Update () {
 var raycheck: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-var hitcheck: RaycastHit;
+
 
 if (Physics.Raycast(raycheck, hitcheck,1) && hitcheck.collider.gameObject.tag == "pickup"){ guipick = true;
 
@@ -55,6 +64,7 @@ canpick = true;
 
 if(Input.GetMouseButtonDown(0) && picking)
 {
+timer = 100;
 picking = false;
 canpick = false; 
 pickObj.rigidbody.constraints = RigidbodyConstraints.None;
@@ -78,6 +88,7 @@ if(Input.GetMouseButtonDown(1) && picking   )
 
 
 { 
+timer = 200;
 picking = false;
 canpick = false; 
 pickObj.rigidbody.useGravity=true;
@@ -110,7 +121,7 @@ if (Physics.Raycast(ray, hit, 1) && hit.collider.gameObject.tag == "pickup")
  
  
 //pickObj.rigidbody.AddForce (transform.forward * 300);
-// hit.rigidbody.isKinematic = true; 
+// hit.rigidbody.isKinematic = true;  
 
 //angle = Vector3.Angle(gameObject.transform.position,pickObj.transform.position) ;
 //hit.transform.position= gameObject.transform.position;
@@ -133,10 +144,20 @@ pickdistance = Vector3.Magnitude(gameObject.transform.position-pickObj.transform
 }
 
 
-
+ 
 function OnGUI () {
 
-if (guipick && canpick && !picking){
-GUI.Label (Rect (Screen.width/2,Screen.height/2,Screen.width/2,Screen.height/2), "Pick Up");
+timer=timer-1;
+
+if (guipick && canpick && !picking && timer<0){
+
+GUI.Label (Rect (Screen.width/2-hand.width/2,Screen.height/2-hand.height/2, hand.width, hand.height),hand);
+//GUI.Label (Rect (Screen.width/2-40,Screen.height/2,Screen.width/2,Screen.height/2), hitcheck.collider.gameObject.name);
 }
+
+if (picking){ 
+GUI.Label (Rect (Screen.width/2-fist.width/2,Screen.height/2-fist.height/2, fist.width, fist.height),fist);
+}
+
+
 }
