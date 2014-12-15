@@ -3,35 +3,38 @@ using System.Collections;
 using rayav_csharp;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 
 public class Player_Rayav : MonoBehaviour {
-
-
-	
+	public string dllPath;
+	 
+	public string currentPath;
 	void Start () {
 
-		string currentPath = Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
-		string dllPath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "Assets" + Path.DirectorySeparatorChar + "Plugins";
+
+
+		currentPath = Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Process);
+		dllPath = Environment.CurrentDirectory + Path.DirectorySeparatorChar + "Assets" + Path.DirectorySeparatorChar + "Plugins";
 		if(currentPath.Contains(dllPath) == false)
-		{
+		{ 
 			Environment.SetEnvironmentVariable("PATH", currentPath + Path.PathSeparator + dllPath, EnvironmentVariableTarget.Process);
 		}
+	 
 	
-	
-	
+	  
 		Audio.Initialize(@"\\Assets\rayav_config.rconf");
-		//Audio.SetReceiver (new rayav_csharp.Vector3 (transform.position.x,transform.position.y,transform.position.z), 
-	   //                		new rayav_csharp.Vector3 (transform.forward.x,transform.forward.y,transform.forward.z),
-		//                    new rayav_csharp.Vector3 (transform.up.x,transform.up.y,transform.up.z));
+		Audio.SetReceiver (new rayav_csharp.Vector3 (transform.position.x,transform.position.y,transform.position.z), 
+	                   		new rayav_csharp.Vector3 (transform.forward.x,transform.forward.y,transform.forward.z),
+		                    new rayav_csharp.Vector3 (transform.up.x,transform.up.y,transform.up.z));
 
-		//SoundSourceHandle source = Audio.AddSoundSource(new rayav_csharp.Vector3 (10f,-5f,-23f), SoundSourceAttenuation.DivByDistance);
+		SoundSourceHandle source = Audio.AddSoundSource(new rayav_csharp.Vector3 (10f,-5f,-23f), SoundSourceAttenuation.DivByDistance);
 		
-		//SoundSampleHandle sample = Audio.RegisterSample(@"C:\Users\Karlos\Desktop\Inzynierka\Project-Stealth\Project-Stealth\RayAV\Assets\Music\FootstepsSoundsCarpetPack\footsteps_run_carpet_1.wav");             
+		SoundSampleHandle sample = Audio.RegisterSample(@"C:\Users\Karlos\Desktop\Inzynierka\Project-Stealth\Project-Stealth\RayAV\Assets\Music\FootstepsSoundsCarpetPack\footsteps_run_carpet_1xxx.wav");             
 		
-		//while (!Audio.IsSoundSampleLoaded(sample)) {}
+		while (!Audio.IsSoundSampleLoaded(sample)) {}
 		
-		//Audio.Play(sample, source);  
+		Audio.Play(sample, source);  
 	}
 	
 	// Update is called once per frame

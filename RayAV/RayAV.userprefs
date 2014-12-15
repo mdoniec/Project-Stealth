@@ -1,12 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Actions\picktoscr.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\Player_Rayav.cs">
     <Files>
-      <File FileName="Assets\Scripts\Actions\picktoscr.js" Line="155" Column="72" />
+      <File FileName="Assets\Scripts\Player\Player_Rayav.cs" Line="26" Column="49" />
+      <File FileName="Assets\Scripts\Player\PlayerMovement.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerSound.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\MouseLook.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Karlos\Desktop\Inzynierka\Project-Stealth\Project-Stealth\RayAV\Assets\Scripts\Player\Player_Rayav.cs" line="21" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
