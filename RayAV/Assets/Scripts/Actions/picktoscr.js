@@ -114,7 +114,7 @@ var hit: RaycastHit;
 
 
 
-//PICKUP
+//PICKUP 
 if (Physics.Raycast(ray, hit, 1) && hit.collider.gameObject.tag == "pickup")
 { pickObj = hit.collider.gameObject;
  hit.rigidbody.useGravity = false;
@@ -136,8 +136,8 @@ if (Physics.Raycast(ray, hit, 1) && hit.collider.gameObject.tag == "pickup")
  //hit.rigidbody.constraints = RigidbodyConstraints.FreezePosition ;
 pickdistance = Vector3.Magnitude(gameObject.transform.position-pickObj.transform.position);
  // hit.rigidbody.constraints = RigidbodyConstraints.FreezeRotation ;
-
  //hit.transform.rotation = objectRot;
+
 
 }
 

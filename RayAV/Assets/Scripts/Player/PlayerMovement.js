@@ -1,6 +1,6 @@
 ﻿#pragma strict
-var moveAcc = 120;
-var maxSpeed = 80;
+var moveAcc = 160;
+var maxSpeed = 160;
 var JumpForce =250;
 
 
