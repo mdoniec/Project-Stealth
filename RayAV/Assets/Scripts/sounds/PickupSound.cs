@@ -15,7 +15,7 @@ public class PickupSound : MonoBehaviour {
 		
 		
 		AudioSource[] audios = GetComponents<AudioSource>();
-		sound1 = audios[0];
+		sound1 = audios[1];
 		//carpetsteps= audios[1];
 		
 	}
@@ -31,11 +31,9 @@ public class PickupSound : MonoBehaviour {
 	void Update () {
 
 
-		if (!sound1.isPlaying) {
-						sound1.volume = rigidbody.velocity.magnitude / 5;
-				}
-	if (colidedsurface == "Map" && !sound1.isPlaying) {sound1.Play ();}
-		//if(rigidbody.velocity.magnitude<maxSpeed) sound1.Pause ();
+	
+						sound1.volume = rigidbody.velocity.magnitude ;
+
 
 
 		}

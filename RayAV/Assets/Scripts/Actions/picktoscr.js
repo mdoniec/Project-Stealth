@@ -67,7 +67,7 @@ if(Input.GetMouseButtonDown(0) && picking)
 timer = 100;
 picking = false;
 canpick = false; 
-pickObj.rigidbody.constraints = RigidbodyConstraints.None;
+//pickObj.rigidbody.constraints = RigidbodyConstraints.None;
 pickObj.rigidbody.useGravity=true;
 pickObj.rigidbody.isKinematic = false;
 pickObj.transform.parent = null;
@@ -93,7 +93,7 @@ picking = false;
 canpick = false; 
 pickObj.rigidbody.useGravity=true;
 pickObj.rigidbody.isKinematic = false;
-pickObj.rigidbody.constraints = RigidbodyConstraints.None ;
+//pickObj.rigidbody.constraints = RigidbodyConstraints.None ;
 pickObj.transform.parent = null;
 
 pickObj.collider.isTrigger = false; pickObj = pickref;
