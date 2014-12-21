@@ -3,20 +3,16 @@ using System.Collections;
 
 public class PickupSound : MonoBehaviour {
 	
-	string colidedsurface ;
-	int maxSpeed = 40;
+	public string colidedsurface ;
+
 	AudioSource sound1;
-	//AudioSource carpetsteps;
-	
-	// Use this for initialization
-	void Start () {
-		//// AUDIO SOURCES
-		
-		
-		
+
+	public AudioClip impact ;
+
+		void Start () {
+
 		AudioSource[] audios = GetComponents<AudioSource>();
 		sound1 = audios[1];
-		//carpetsteps= audios[1];
 		
 	}
 	
@@ -29,10 +25,8 @@ public class PickupSound : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		sound1.pitch = (float)(0.0 + rigidbody.velocity.magnitude);
 
-
-	
-						sound1.volume = rigidbody.velocity.magnitude ;
 
 
 

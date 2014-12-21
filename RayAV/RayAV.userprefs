@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\sounds\PickupSound.cs">
     <Files>
-      <File FileName="Assets\Scripts\sounds\PickupSound.cs" Line="35" Column="1" />
+      <File FileName="Assets\Scripts\sounds\PickupSound.cs" Line="13" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
