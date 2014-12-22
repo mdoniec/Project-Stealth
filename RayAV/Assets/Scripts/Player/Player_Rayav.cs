@@ -1,29 +1,50 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using rayav_csharp;
-
+using RayaUtility;
 
 public class Player_Rayav : MonoBehaviour {
 	
+	private SoundSourceHandle source;
+	private SoundSampleHandle sample;
+	private int counter = 0;
 
-	void Start () {
-	Audio.Initialize("Assets/example_config.rconf");
-	//	Audio.SetReceiverTransformation (RayavVector3 (transform.position), RayavVector3 (transform.forward),RayavVector3 (transform.up));
+	public void Start () {
+		Audio.Initialize("Assets/example_config.rconf");
 
-	//	SoundSourceHandle source = Audio.AddSoundSource(RayavVector3 (new UnityEngine.Vector3(10f,-5f,-23f)), 
-		                                             //   SoundSourceAttenuation.DivByDistance);
-
-		//SoundSampleHandle sample = Audio.RegisterSample(@"C:\Users\Karlos\Desktop\Inzynierka\Project-Stealth\RayAV\Assets\Music\FootstepsSoundsCarpetPack\footsteps_run_carpet_1.wav");             
+		sample = Audio.RegisterSample ("Assets/rayav_assets/wavs/Gun.ogg");
 		
-		//while (!Audio.IsSoundSampleLoaded(sample)) {}
+		Audio.SetReceiver(RayaUtility.RayaUtility.fromUnityVector3(transform.position),
+		                  RayaUtility.RayaUtility.fromUnityVector3(transform.forward),
+		                  RayaUtility.RayaUtility.fromUnityVector3(transform.up));
+
+		rayav_csharp.Vector3 sourcePosition = RayaUtility.RayaUtility.fromUnityVector3 (transform.position);
+		rayav_csharp.Vector3 translation = new rayav_csharp.Vector3 (2, 0, 0);
+
+		source = Audio.AddSoundSource (rayav_csharp.Vector3.Add (sourcePosition, translation), SoundSourceAttenuation.DivByDistance);
+
+		while (!Audio.IsSoundSampleLoaded(sample)) {}
 		
-		//Audio.Play(sample, source);  
+		Audio.Play(sample, source);  
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	//	Audio.SetReceiverTransformation (RayavVector3 (transform.position), RayavVector3 (transform.forward),
-	//	                                 RayavVector3 (transform.up));
-	//
+		Audio.SetReceiver(RayaUtility.RayaUtility.fromUnityVector3(transform.position),
+		                  RayaUtility.RayaUtility.fromUnityVector3(transform.forward),
+		                  RayaUtility.RayaUtility.fromUnityVector3(transform.up));
+
+		counter++;
+
+		if (counter % 40 == 0) {
+			counter = 0;
+			Audio.Flush();
+		}
 	}
+
+	public void OnApplicationQuit()
+	{
+		Audio.UnloadLibrary ();
+	}
+
 }
