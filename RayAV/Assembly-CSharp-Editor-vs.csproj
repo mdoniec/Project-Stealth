@@ -82,6 +82,9 @@
  <Reference Include="Assembly-UnityScript">
  <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/Project-Stealth/RayAV/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
+ <Reference Include="rayav_csharp">
+ <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/Project-Stealth/RayAV/Assets/rayav_csharp.dll</HintPath>
+ </Reference>
  <Reference Include="ProBuilderCore">
  <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/Project-Stealth/RayAV/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
  </Reference>

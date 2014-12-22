@@ -71,6 +71,9 @@
      <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorEmission.shader" />
      <None Include="Assets\Music\FootstepsSoundsCarpetPack\FootstepsSoundsCarpetPackInfo.txt" />
      <None Include="Assets\ProCore\Prototype\About\Credits.txt" />
+ <Reference Include="rayav_csharp">
+ <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/Project-Stealth/RayAV/Assets/rayav_csharp.dll</HintPath>
+ </Reference>
  <Reference Include="ProBuilderCore">
  <HintPath>C:/Users/Karlos/Desktop/Inzynierka/Project-Stealth/Project-Stealth/RayAV/Assets/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
