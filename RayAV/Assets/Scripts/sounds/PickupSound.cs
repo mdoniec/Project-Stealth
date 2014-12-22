@@ -7,7 +7,7 @@ public class PickupSound : MonoBehaviour {
 
 	AudioSource sound1;
 
-	public AudioClip impact ;
+
 
 		void Start () {
 

@@ -12,7 +12,7 @@ public class PlayerSound : MonoBehaviour {
 	public AudioClip wooden ;
 	public AudioClip carpet ;
 
-	float carpetvolume = 0.6f;
+	float carpetvolume = 0.2f;
 
 
 	void Start () {
