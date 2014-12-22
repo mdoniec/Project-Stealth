@@ -44,6 +44,7 @@ public class Player_Rayav : MonoBehaviour {
 
 	public void OnApplicationQuit()
 	{
+		Audio.Shutdown ();
 		Audio.UnloadLibrary ();
 	}
 
