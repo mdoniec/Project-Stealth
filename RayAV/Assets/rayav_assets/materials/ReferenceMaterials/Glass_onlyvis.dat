@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Glass_onlyvis"
+Alphas="0.35 0.25 0.18 0.12 0.07 0.04 "
+
+SoundSpeed="343"
+Density="2550"
+YoungModulus="44.5E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.28"
+Etha="0.001" # material damping coefficient
+
+VisColor="203,235,250,0"

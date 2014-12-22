@@ -1,0 +1,54 @@
+#--------------Scene file-----------------------------
+scene file=Assets/MAPS/AcuMap.rmf
+
+#------------------Geometry options--------------------
+adfrustum accuracy=4
+use varying beam accuracy=false
+adfrustum generation 0 accuracy=4
+adfrustum generation 1 accuracy=3
+adfrustum generation 2 accuracy=3
+adrayfrustum generation 0 preprocessing level=1
+adrayfrustum generation 1 preprocessing level=0
+adrayfrustum generation 2 preprocessing level=0
+# WARNING!
+# for SSE version, [adrayfrustum preprocessing level] must be at most equal to [adfrustum accuracy]-2
+#      for AVX version, [adrayfrustum preprocessing level] must be at most equal to [adfrustum accuracy]-3
+adrayfrustum preprocessing level=1
+
+max beam generation=3
+
+## common options ##
+enable beam merging=true
+enable beam reflection=true
+enable beam transmission=true
+enable beam diffraction=true
+max geometry tree depth=10
+trigger triangle count for geometry tree cell subdivision=10
+
+enable sound processing=true
+use triangle based beams=true
+#------------------------------------------------------
+
+#------------------------------------------------------
+
+#-------------Effects and materials--------------------
+enable air absorption=true
+reference materials directory=Assets/rayav_assets/materials/ReferenceMaterials/
+materials directory=Assets/rayav_assets/materials/ReferenceMaterials/
+use default instead of inaccessible material=true
+enable doppler effect=false
+SPL threshold=-60 #dB max value: 0 dB
+RMS difference between parent and child diffraction beam = -3; # dB.
+BQC_HRTF=Assets/rayav_assets/hrtf/bqc_hrtf.dat
+diffraction table path=Assets/rayav_assets/diffraction_tables/diffraction_table_24_8.dat
+use interpolated diffraction=true
+use headphones=true
+#------------------------------------------------------
+
+import Assets/rayav_assets/reverb_off.txt
+
+#Pipelines configuration
+import Assets/rayav_assets/pipelinesconfig.txt
+
+#Compressor
+import Assets/rayav_assets/compressorconfig.txt

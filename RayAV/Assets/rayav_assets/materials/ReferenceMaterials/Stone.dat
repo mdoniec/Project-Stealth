@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Stone"
+Alphas="0.03 0.03 0.03 0.05 0.7 0.1 "
+
+SoundSpeed="343"
+Density="3000"
+YoungModulus="20E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.28"
+Etha="0.02" # material damping coefficient
+
+VisColor="99,107,129,255"

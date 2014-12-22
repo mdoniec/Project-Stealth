@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Wood(oak)_onlyvis"
+Alphas="0.10 0.20 0.60 0.75 0.85 0.85 "
+
+SoundSpeed="343"
+Density="850"
+YoungModulus="11E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.15"
+Etha="0.009" # material damping coefficient
+
+VisColor="122,66,29,0"

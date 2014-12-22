@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Lexan_onlyvis"
+Alphas="0.35 0.25 0.35 0.25 0.15 0.08 "
+
+SoundSpeed="343"
+Density="1200"
+YoungModulus="10.5E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.25"
+Etha="0.015" # material damping coefficient
+
+VisColor="213,219,230,0"

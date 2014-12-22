@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Steel"
+Alphas="0.7 0.05 0.04 0.03 0.02 0.01 "
+
+SoundSpeed="343"
+Density="7800"
+YoungModulus="200E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.28"
+Etha="0.006" # material damping coefficient
+
+VisColor="185,182,170,255"

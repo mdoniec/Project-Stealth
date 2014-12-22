@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Curtain"
+Alphas="0.36 0.26 0.51 0.45 0.62 0.76 "
+
+SoundSpeed="343"
+Density="120"
+YoungModulus="65E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.0001"
+Etha="0.2" # material damping coefficient
+
+VisColor="240,230,180,255"

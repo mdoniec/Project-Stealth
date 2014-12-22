@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Plexiglas_onlyvis"
+Alphas="0.35 0.25 0.18 0.12 0.09 0.08 "
+
+SoundSpeed="343"
+Density="58.450"
+YoungModulus="1.8E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.4"
+Etha="0.03" # material damping coefficient
+
+VisColor="197,222,218,0"

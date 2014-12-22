@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Aluminium"
+Alphas="1.0 1.0 1.0 1.0 1.0 1.0"
+
+SoundSpeed="343"
+Density="2750"
+YoungModulus="67E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.33"
+Etha="0.0005" # material damping coefficient
+
+VisColor="225,225,225,255"

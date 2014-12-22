@@ -1,0 +1,13 @@
+# Material data file. Version 1.0
+# Default material. Full absorption.
+Name="DefaultMaterial_onlyvis"
+Alphas="0.4 0.4 0.4 0.4 0.4 0.4 "
+
+SoundSpeed="343"
+Density="2100"
+YoungModulus="20E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.2"
+Etha="0.02" # material damping coefficient
+
+VisColor="255,0,0,0"

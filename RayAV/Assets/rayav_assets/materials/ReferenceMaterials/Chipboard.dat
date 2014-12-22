@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Chipboard"
+Alphas="0.3 0.35 0.5 0.4 0.3 0.2 "
+
+SoundSpeed="343"
+Density="700"
+YoungModulus="1E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.08"
+Etha="0.02" # material damping coefficient
+
+VisColor="214,186,122,255"

@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Tin"
+Alphas="0.7 0.05 0.04 0.03 0.02 0.01 "
+
+SoundSpeed="343"
+Density="7280"
+YoungModulus="4.4E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.39"
+Etha="0.002" # material damping coefficient
+
+VisColor="214,211,192,255"

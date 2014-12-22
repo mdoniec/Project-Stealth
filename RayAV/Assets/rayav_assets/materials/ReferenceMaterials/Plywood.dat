@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Plywood"
+Alphas="0.21 0.15 0.12 0.1 0.12 0.15 "
+
+SoundSpeed="343"t
+Density="600"
+YoungModulus="0.03E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.4"
+Etha="0.03" # material damping coefficient
+
+VisColor="226,198,139,255"

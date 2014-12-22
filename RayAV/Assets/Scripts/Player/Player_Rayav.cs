@@ -7,7 +7,7 @@ public class Player_Rayav : MonoBehaviour {
 	
 
 	void Start () {
-	Audio.Initialize(@"Assets\rayav_config.rconfw");
+	Audio.Initialize("Assets/example_config.rconf");
 	//	Audio.SetReceiverTransformation (RayavVector3 (transform.position), RayavVector3 (transform.forward),RayavVector3 (transform.up));
 
 	//	SoundSourceHandle source = Audio.AddSoundSource(RayavVector3 (new UnityEngine.Vector3(10f,-5f,-23f)), 

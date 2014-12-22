@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Polyethylene_onlyvis"
+Alphas="0.3 0.25 0.25 0.3 0.35 0.4 "
+
+SoundSpeed="343"
+Density="935"
+YoungModulus="195E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.34"
+Etha="0.01" # material damping coefficient
+
+VisColor="198,188,224,0"

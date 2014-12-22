@@ -1,0 +1,10 @@
+# Material data file. Version 1.0
+# Do not use ' ' in material name!
+Name="Air"
+SoundSpeed="343.0"
+Density="1.21"
+# First band:
+# use 0, 62.5, 125.0, 250.0, 500.0, 1000.0, 2000.0, 4000.0, 8000.0 or 16000.0
+# If isn't set uses default value = 125.0
+FirstBand="0.0"
+Alphas="0.0 7E-7 5E-6 9E-5 25E-5 8E-4 25E-4 7E-3 2E-2 2E-1 "

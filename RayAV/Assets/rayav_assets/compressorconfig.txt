@@ -1,0 +1,9 @@
+# Output compressor initial parameters
+#
+comp ratio = 5.0 #from 1 to 10
+comp threshold = -30.0 #dB from -40 to 0
+comp auto gain = 12.0 #dB from -10 to 60
+comp attack time = 30.0 #ms from 0.001 to 200
+comp release time = 200.0 #ms from 10 to 2000
+comp peak = false #use RMS
+comp bypass = true

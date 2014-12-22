@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Plaster"
+Alphas="0.11 0.10 0.08 0.07 0.07 0.06 "
+
+SoundSpeed="343"
+Density="1700"
+YoungModulus="0.42E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.4"
+Etha="0.05" # material damping coefficient
+
+VisColor="241,238,218,255"

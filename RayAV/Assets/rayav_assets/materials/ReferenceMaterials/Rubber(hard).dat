@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Rubber(hard)"
+Alphas="0.3 0.25 0.25 0.35 0.5 0.6 "
+
+SoundSpeed="343"
+Density="1500"
+YoungModulus="11E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.45"
+Etha="0.08" # material damping coefficient
+
+VisColor="232,184,155,255"

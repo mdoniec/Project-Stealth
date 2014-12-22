@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Concrete_onlyvis"
+Alphas="0.36 0.44 0.31 0.29 0.39 0.25 "
+
+SoundSpeed="343"
+Density="850"
+YoungModulus="3.8E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.2"
+Etha="0.008" # material damping coefficient
+
+VisColor="146,146,146,0"

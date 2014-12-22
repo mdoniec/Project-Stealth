@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Copper"
+Alphas="0.14 0.10 0.08 0.07 0.06 0.07 "
+
+SoundSpeed="343"
+Density="8900"
+YoungModulus="0.025E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.35"
+Etha="0.002" # material damping coefficient
+
+VisColor="227,167,113,255"

@@ -1,7 +1,6 @@
 #--------------Scene file-----------------------------
 
-#scene file=assets/models/TheGame/plansza_test_03_low_poprawione1.rmf
-scene file=/MAPS/AcuMap.rmf
+scene file=Assets/MAPS/AcuMap.rmf
 #vis=vis_church2.txt
 #vis=vis_desert1.txt
 #vis=vis_aula1.txt

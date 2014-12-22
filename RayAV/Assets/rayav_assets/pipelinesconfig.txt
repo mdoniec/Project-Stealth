@@ -1,0 +1,18 @@
+use pipelines limits = false
+
+max EARLY pipelines = 10000
+max MID pipelines = 0
+max LATE pipelines = 0
+
+# Late pipelines uses first order LP IIR filter
+late pipelines cut-off frequencey=4000 # Hz
+
+# TODO:
+# Add detailed thresholds and other configuration values.
+global output level = 0 #dB
+main pipelines level = 0 #dB
+main reverberation level = -30 #dB
+portals reverberation level = -30 #dB
+
+reverberation HP filter enabled=true
+reverberation HP filter cut-off frequencey=250 #Hz

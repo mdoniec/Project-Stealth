@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="Sandstone"
+Alphas="0.03 0.03 0.03 0.04 0.05 0.07 "
+
+SoundSpeed="343"
+Density="2100"
+YoungModulus="20E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.2"
+Etha="0.02" # material damping coefficient
+
+VisColor="242,210,155,255"

@@ -1,0 +1,16 @@
+# Material data file. Version 1.0
+Name="Asbestos concrete"
+Alphas="0.10 0.05 0.06 0.07 0.09 0.08 "
+
+SoundSpeed="343"
+Density="2000"
+YoungModulus="28E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.08"
+Etha="0015" # material damping coefficient
+
+# Material data file. Version 1.0
+Name="Glass"
+Alphas="0.35 0.25 0.18 0.12 0.07 0.04 "
+
+VisColor="166,166,150,255"

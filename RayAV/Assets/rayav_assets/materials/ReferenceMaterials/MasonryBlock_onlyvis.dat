@@ -1,0 +1,12 @@
+# Material data file. Version 1.0
+Name="MasonryBlock_onlyvis"
+Alphas="0.01 0.01 0.02 0.03 0.03 0.04 "
+
+SoundSpeed="343"
+Density="400"
+YoungModulus="8E9" # Young modulus in Pa
+Thickness="0.3" # in meters
+PoissonCofficient="0.3"
+Etha="0.006" # material damping coefficient
+
+VisColor="197,190,177,0"
