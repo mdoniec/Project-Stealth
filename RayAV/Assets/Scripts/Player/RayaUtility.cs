@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 using System;
 using rayav_csharp;
-using UnityEditor;
+//using UnityEditor;
 
 namespace RayaUtility
 {

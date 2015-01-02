@@ -1,24 +1,14 @@
 Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-7-4112
+Pipe name: \\.\pipe\UnityShaderCompiler-7-1236
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=1 type=0 insize=4429 outsize=216 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=2380 outsize=849 kw=POINT_COOKIE ok=1
 Cmd: compileSnippet
-  api=1 type=0 insize=4429 outsize=1307 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+  api=0 type=0 insize=1835 outsize=457 kw= ok=1
 Cmd: compileSnippet
-  api=1 type=1 insize=4429 outsize=251 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=4121 outsize=566 kw=LIGHTMAP_ON DIRLIGHTMAP_ON HDR_LIGHT_PREPASS_ON ok=1
 Cmd: compileSnippet
-  api=1 type=1 insize=4429 outsize=411 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=2380 outsize=807 kw=DIRECTIONAL_COOKIE ok=1
-Cmd: compileSnippet
-  api=1 type=1 insize=2380 outsize=477 kw=POINT_COOKIE ok=1
-Cmd: compileSnippet
-  api=1 type=1 insize=1835 outsize=118 kw= ok=1
-Cmd: compileSnippet
-  api=1 type=0 insize=4121 outsize=665 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=4121 outsize=369 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+  api=0 type=1 insize=4121 outsize=726 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
 Unhandled exception: Readfile from pipe failed. GLE=Potok zosta³ zakoñczony.
 
 
