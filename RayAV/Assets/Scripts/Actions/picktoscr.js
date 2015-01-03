@@ -38,8 +38,9 @@ function Start () {
 pickref = GameObject.FindWithTag ("pickupref");
 emptyj = GameObject.FindWithTag ("emptyjoint");
 pickObj = pickref;
-hand = Resources.LoadAssetAtPath("Assets/icons/hand.png",typeof(Texture2D)) as Texture2D; ;
-fist = Resources.LoadAssetAtPath("Assets/icons/fist.png",typeof(Texture2D)) as Texture2D; ;
+
+
+
 }
 function Update () {
 var raycheck: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -157,7 +158,7 @@ GUI.Label (Rect (Screen.width/2-hand.width/2,Screen.height/2-hand.height/2, hand
 }
 
 if (picking){ 
-GUI.Label (Rect (Screen.width/2-fist.width/2,Screen.height/2-fist.height/2, fist.width, fist.height),fist);
+GUI.Label (Rect (Screen.width/2-hand.width/2,Screen.height/2-fist.height/2, fist.width, fist.height),fist);
 }
 
 

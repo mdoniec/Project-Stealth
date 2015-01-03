@@ -1,6 +1,7 @@
 ﻿#pragma strict
 var moveAcc = 160;
-var maxSpeed = 160;
+var maxSpeed = 80;
+var runSpeed = 160;
 var JumpForce =250;
 
 
@@ -29,20 +30,23 @@ rigidbody.AddForce(Vector3(0,rigidbody.velocity.magnitude*runForce,0));
 looper=0;
 }
 
+// RUNNING
+if (rigidbody.velocity.magnitude*100<runSpeed && Input.GetKey(KeyCode.LeftShift)){
+looper=looper+1;
+if (Input.GetAxis ("Vertical")>0){
+rigidbody.AddForce(Vector3(transform.forward.x * moveAcc,0,transform.forward.z * moveAcc));
 
+}}
 
 // MOVEMENT
 if (rigidbody.velocity.magnitude*100<maxSpeed){
 looper=looper+1;
 if (Input.GetAxis ("Vertical")>0){
 rigidbody.AddForce(Vector3(transform.forward.x * moveAcc,0,transform.forward.z * moveAcc));
-//for (var child : Transform in transform) {
-//if (child.rigidbody) {
-//child.rigidbody.AddForce(Vector3(child.transform.forward.x * moveAcc,0,child.transform.forward.z * moveAcc));
-//}
 
-//}
 }
+
+
 
 //move "backward"
 if (Input.GetAxis("Vertical")<0){
@@ -67,7 +71,7 @@ if (Mathf.Abs(rigidbody.velocity.y)<0.1){
 if (Input.GetKey("space"))   {
 rigidbody.AddForce(transform.up*JumpForce);
 }
-
 }
+
 
 }

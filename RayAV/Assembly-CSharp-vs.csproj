@@ -46,18 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CollisionSound.cs" />
      <Compile Include="Assets\Enemy model\FreeCharacter\BasicLocomotionPack\LocomotionScript.cs" />
-     <Compile Include="Assets\EnemyAI.cs" />
-     <Compile Include="Assets\HideRenderer.cs" />
-     <Compile Include="Assets\LampFlicker.cs" />
      <Compile Include="Assets\ProCore\Prototype\Scripts\RebuildMeshOnWake.cs" />
+     <Compile Include="Assets\Scripts\Actions\LampFlicker.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
+     <Compile Include="Assets\Scripts\Enemy\HideRenderer.cs" />
      <Compile Include="Assets\Scripts\Player\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSound.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Rayav.cs" />
      <Compile Include="Assets\Scripts\Player\RayaUtility.cs" />
+     <Compile Include="Assets\Scripts\sounds\CollisionSound.cs" />
      <Compile Include="Assets\Scripts\sounds\PickupSound.cs" />
+     <Compile Include="Assets\StepsThreat.cs" />
      <Compile Include="Assets\Stuff\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <Compile Include="Assets\Stuff\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
      <Compile Include="Assets\Stuff\Torch\scene\script\TorchSlider.cs" />
