@@ -49,8 +49,11 @@
      <Compile Include="Assets\CollisionSound.cs" />
      <Compile Include="Assets\Enemy model\FreeCharacter\BasicLocomotionPack\LocomotionScript.cs" />
      <Compile Include="Assets\EnemyAI.cs" />
+     <Compile Include="Assets\HideRenderer.cs" />
+     <Compile Include="Assets\LampFlicker.cs" />
      <Compile Include="Assets\ProCore\Prototype\Scripts\RebuildMeshOnWake.cs" />
      <Compile Include="Assets\Scripts\Player\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSound.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Rayav.cs" />
      <Compile Include="Assets\Scripts\Player\RayaUtility.cs" />
