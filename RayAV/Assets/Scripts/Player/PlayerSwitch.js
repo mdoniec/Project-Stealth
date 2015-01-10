@@ -12,7 +12,6 @@ var timer = 200;
 
 function Start () {
 
-hand = Resources.LoadAssetAtPath("Assets/icons/hand.png",typeof(Texture2D)) as Texture2D; ;
 }
 
 function Update () {
