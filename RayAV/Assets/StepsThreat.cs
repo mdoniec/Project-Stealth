@@ -16,9 +16,9 @@ public class StepsThreat : MonoBehaviour {
 		distance = (transform.position - enemy.transform.position).magnitude;
 
 		
-		if ((enemyscript.incomingsound < rigidbody.velocity.magnitude * 2.2f / (transform.position - enemy.transform.position).magnitude) && ((transform.position - enemy.transform.position).magnitude > 2)) {
+		if ((enemyscript.incomingsound < rigidbody.velocity.magnitude * 2f / (transform.position - enemy.transform.position).magnitude) && ((transform.position - enemy.transform.position).magnitude > 1.5)) {
 			enemyscript.target = transform;
-			enemyscript.incomingsound = (rigidbody.velocity.magnitude * 2.2f / (transform.position - enemy.transform.position).magnitude);
+			enemyscript.incomingsound = (rigidbody.velocity.magnitude * 2f / (transform.position - enemy.transform.position).magnitude);
 		}
 	
 	}

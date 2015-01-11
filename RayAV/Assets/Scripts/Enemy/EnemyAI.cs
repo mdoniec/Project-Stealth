@@ -26,8 +26,8 @@ public class EnemyAI : MonoBehaviour {
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
 		oldrot = transform;
-		vanish=149;
-		randomspawn=1;
+		vanish=600;
+		randomspawn=0;
 
 	}
 	
@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour {
 		
 				if (!body.renderer.isVisible) {vanish++; }
 
-			if (vanish>350 && incomingsound<2) {
+			if (vanish>700 && incomingsound<2) {
 
 					
 				incomingsound=0.7f;
@@ -67,20 +67,21 @@ public class EnemyAI : MonoBehaviour {
 
 
 				if (!audio.isPlaying) audio.PlayOneShot(scream, 1);
-
-				if (randomspawn==1) {transform.position=spawn1.position; agent.enabled = true; agent.ResetPath();}
+				if (randomspawn==0) {transform.position=spawn1.position; target=piano.transform; agent.enabled = true; agent.ResetPath();}
+				if (randomspawn==1) {transform.position=spawn1.position; target=spawn3; agent.enabled = true; agent.ResetPath();}
 				if (randomspawn==2) {transform.position=spawn2.position; target=spawn3; agent.enabled = true; agent.ResetPath();}
 				if (randomspawn==3) {transform.position=spawn3.position; target=spawn1; agent.enabled = true; agent.ResetPath();}
+
 				randomspawn = (int)Random.Range(1f, 4F);
 				transform.rotation=oldrot.rotation;
 				//agent.ResetPath();
 					vanish=0;
 
-				if ((agent.destination-target.position).magnitude>0.6) if (!audio.isPlaying) audio.PlayOneShot(scream, 1);
-				
+
 
 			
 				}
+			if ((agent.destination-target.position).magnitude>0.6) if (!audio.isPlaying) audio.PlayOneShot(scream, 1);
 
 			agent.SetDestination (target.position);
 			}

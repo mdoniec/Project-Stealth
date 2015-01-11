@@ -29,7 +29,7 @@ public class CollisionSound : MonoBehaviour {
 		//colidedsurface = collisionInfo.gameObject.name;
 		audio.PlayOneShot(impact, collision.relativeVelocity.magnitude/2);
 
-		if ((enemyscript.incomingsound < collision.relativeVelocity.magnitude * 2 * rigidbody.mass / (transform.position - enemy.transform.position).magnitude) && ((transform.position - enemy.transform.position).magnitude > 1.5)) {
+		if ((enemyscript.incomingsound < collision.relativeVelocity.magnitude * 2 * rigidbody.mass / (transform.position - enemy.transform.position).magnitude) && ((transform.position - enemy.transform.position).magnitude > 1.4)) {
 			enemyscript.target = transform;
 			enemyscript.incomingsound = (collision.relativeVelocity.magnitude * 2 * rigidbody.mass/ (transform.position - enemy.transform.position).magnitude);
 		}

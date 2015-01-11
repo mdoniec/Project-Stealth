@@ -55,18 +55,19 @@ public class PlayerHealth : MonoBehaviour {
 
 		
 		//////// YOU SEE THE ENEMY
+		if (statik.isPlaying) health = health - 0.1f;
 		if (enemyrenderer.renderer.isVisible) {
 			RaycastHit hit;
-
-
 			if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),out hit)) {
 				//print(hit.collider.name);
-				if (!statik.isPlaying && hit.collider.name=="BlindMan") {statik.Play(); health = health - 0.05f; }
+				if (hit.collider.name=="BlindMan") {
+
+				if (!statik.isPlaying) statik.Play();}
 			} else statik.Pause();
 }   else statik.Pause();
 
 		////// 
-
+	
 
 
 
@@ -95,7 +96,7 @@ public class PlayerHealth : MonoBehaviour {
 		
 		
 		if (health > 0) {
-						health = health + 0.02f;
+						health = health + 0.03f;
 		} else {
 			dead = true;
 			 enemy.audio.PlayOneShot(SCREAM,1f);
