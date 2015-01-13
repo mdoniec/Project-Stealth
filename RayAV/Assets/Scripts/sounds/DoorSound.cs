@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PickupSound : MonoBehaviour {
+public class DoorSound : MonoBehaviour {
 	
 	public string colidedsurface ;
-
+	
 	AudioSource sound1;
-
-
-
-		void Start () {
-
+	
+	
+	
+	void Start () {
+		
 		AudioSource[] audios = GetComponents<AudioSource>();
 		sound1 = audios[1];
 		
@@ -26,11 +26,11 @@ public class PickupSound : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		sound1.pitch = (float)(0.0 + rigidbody.velocity.magnitude);
-
-
-
-
-		}
+		
+		
+		
+		
 	}
-	
-	
+}
+
+

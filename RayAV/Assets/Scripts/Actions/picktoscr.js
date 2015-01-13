@@ -1,17 +1,12 @@
 ﻿
 
 #pragma strict
-var objectPos : Vector3;
-
 var strength : int = 300;
-
-var objectRot : Quaternion;
+var timer = 200;
 
 var pickObj : GameObject;
 
 var canpick = true;
-
-var timer = 200;
 
 var picking = false;
 
@@ -19,144 +14,103 @@ var guipick = false;
 
 var pickref : GameObject;
 
-var currentdistance : float ;
-
-var pickdistance : float ;
-
 var emptyj : GameObject;
-
-var hand :Texture2D;
-
-var fist :Texture2D;
 
 var parentjoint : ConfigurableJoint;
 
 var hitcheck: RaycastHit;
 
-function Start () {
+var hand :Texture2D;
 
+var fist :Texture2D;
+
+function Start () {
+// set starting values of used objects
 pickref = GameObject.FindWithTag ("pickupref");
 emptyj = GameObject.FindWithTag ("emptyjoint");
 pickObj = pickref;
-
-
-
 }
+
+// In every frame
 function Update () {
+
+// create raycheck from mouse position and allow picking
 var raycheck: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-
-if (Physics.Raycast(raycheck, hitcheck,1) && hitcheck.collider.gameObject.tag == "pickup"){ guipick = true;
-
-} 
-
-if (Physics.Raycast(raycheck, hitcheck) && hitcheck.collider.gameObject.tag != "pickup"){ guipick = false;
-
-}
-
-objectPos = transform.position;
-
-objectRot = transform.rotation;
-
 canpick = true; 
 
-//THROW
+// Is mouse poining "pickup" object?
+if (Physics.Raycast(raycheck, hitcheck,1) && hitcheck.collider.gameObject.tag == "pickup") guipick = true;
+if (Physics.Raycast(raycheck, hitcheck) && hitcheck.collider.gameObject.tag != "pickup") guipick = false;
 
+
+
+
+// THROWING --------------------------------------------------------------------
 if(Input.GetMouseButtonDown(0) && picking)
 {
-timer = 100;
-picking = false;
-canpick = false; 
-//pickObj.rigidbody.constraints = RigidbodyConstraints.None;
-pickObj.rigidbody.useGravity=true;
-pickObj.rigidbody.isKinematic = false;
-pickObj.transform.parent = null;
-pickObj.collider.isTrigger = false;
-pickObj.rigidbody.AddForce (transform.right * strength);
- pickObj = pickref;
- emptyj.transform.position = transform.position;
- parentjoint.connectedBody = emptyj.rigidbody;
 
-
-
+	timer = 200;
+	picking = false;
+	canpick = false; 
+// Set picked object rigidbody variables to release it
+	pickObj.rigidbody.useGravity=true;
+	pickObj.rigidbody.isKinematic = false;
+	pickObj.transform.parent = null;
+// Add force to thrown rigidbody and reasign empty joints to the camera
+	pickObj.rigidbody.AddForce (transform.right * strength);
+	pickObj = pickref;
+	emptyj.transform.position = transform.position;
+	parentjoint.connectedBody = emptyj.rigidbody;
 }
 
-
-
-// RELEASE
+// RELEASE--------------------------------------------------
 if(Input.GetMouseButtonDown(1) && picking   ) 
-
-
 { 
-timer = 200;
-picking = false;
-canpick = false; 
-pickObj.rigidbody.useGravity=true;
-pickObj.rigidbody.isKinematic = false;
-//pickObj.rigidbody.constraints = RigidbodyConstraints.None ;
-pickObj.transform.parent = null;
-
-pickObj.collider.isTrigger = false; pickObj = pickref;
-emptyj.transform.position = transform.position;
- parentjoint.connectedBody = emptyj.rigidbody;
+// Set internal script variables to release picked object
+	timer = 200;
+	picking = false;
+	canpick = false; 
+// Set picked object rigidbody variables to release it
+	pickObj.rigidbody.useGravity=true;
+	pickObj.rigidbody.isKinematic = false;
+	pickObj.transform.parent = null;
+// Add force to release rigidbody and reasign empty joints to the camera
+	pickObj.collider.isTrigger = false;
+	pickObj = pickref;
+	emptyj.transform.position = transform.position;
+	parentjoint.connectedBody = emptyj.rigidbody;
  
 }
 
-
-
+///PICKING ------------------------------------------------------------------
 if(Input.GetMouseButtonDown(0) && canpick && guipick){
 picking = true;
 var ray:Ray=Camera.main.ScreenPointToRay(Input.mousePosition);
 var hit: RaycastHit;
 
-
-
-
-
-
-//PICKUP 
+//Check if the object can be picked
 if (Physics.Raycast(ray, hit, 1) && hit.collider.gameObject.tag == "pickup")
-{ pickObj = hit.collider.gameObject;
- hit.rigidbody.useGravity = false;
- 
- 
-//pickObj.rigidbody.AddForce (transform.forward * 300);
-// hit.rigidbody.isKinematic = true;  
-
-//angle = Vector3.Angle(gameObject.transform.position,pickObj.transform.position) ;
-//hit.transform.position= gameObject.transform.position;
-
- parentjoint = transform.parent.GetComponent(ConfigurableJoint);
- 
- parentjoint.connectedBody= hit.rigidbody;
- 
- //hit.transform.parent = gameObject.transform.parent.transform.parent.transform; 
- 
- //hit.rigidbody.constraints = RigidbodyConstraints.FreezePositionX |RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ ;
- //hit.rigidbody.constraints = RigidbodyConstraints.FreezePosition ;
-pickdistance = Vector3.Magnitude(gameObject.transform.position-pickObj.transform.position);
- // hit.rigidbody.constraints = RigidbodyConstraints.FreezeRotation ;
- //hit.transform.rotation = objectRot;
-
-
+{ 
+// Turn off gravity of the picked object, connect the joint and set the distance
+pickObj = hit.collider.gameObject;
+hit.rigidbody.useGravity = false;
+parentjoint = transform.parent.GetComponent(ConfigurableJoint); 
+parentjoint.connectedBody= hit.rigidbody;
 }
-
 } 
+
 }
 
 
- 
+// Display GUI
 function OnGUI () {
+//decrease timer
+timer--;
 
-timer=timer-1;
-
+// Display GUI hand Icons
 if (guipick && canpick && !picking && timer<0){
-
 GUI.Label (Rect (Screen.width/2-hand.width/2,Screen.height/2-hand.height/2, hand.width, hand.height),hand);
-//GUI.Label (Rect (Screen.width/2-40,Screen.height/2,Screen.width/2,Screen.height/2), hitcheck.collider.gameObject.name);
 }
-
 if (picking){ 
 GUI.Label (Rect (Screen.width/2-hand.width/2,Screen.height/2-fist.height/2, fist.width, fist.height),fist);
 }

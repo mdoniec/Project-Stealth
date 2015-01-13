@@ -6,13 +6,9 @@ public class PlayerHealth : MonoBehaviour {
 	public float counter =0 ;
 	public float shakeduration=2000;
 	public float hitcounter =0;
-	public bool dead = false;
-	public Font myFont;
-
 	public float health =100;
-	public Texture2D blackgui;
-	//public string enemyseen;
-	//public string enemyclose;
+	public bool dead = false;
+
 	public AudioClip breath100;
 	public AudioClip breath70;
 	public AudioClip breath20;
@@ -28,117 +24,100 @@ public class PlayerHealth : MonoBehaviour {
 	public GameObject enemy;
 	public AudioClip SCREAM;
 
+	public Texture2D blackgui;
+	public Font myFont;
 
 
-	// Use this for initialization
 	void Start () {
-	
-
-	
-
-
-
-
-
-	}
+}
 
 
 	
 	// Update is called once per frame
 	void Update () {
-		 
-	
-
-	}
+}
 
 	void FixedUpdate() {
-
-		
-		//////// YOU SEE THE ENEMY
-		if (statik.isPlaying) health = health - 0.1f;
-		if (enemyrenderer.renderer.isVisible) {
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),out hit)) {
-				//print(hit.collider.name);
-				if (hit.collider.name=="BlindMan") {
-
-				if (!statik.isPlaying) statik.Play();}
+// Player is seeing the Enemy
+if (enemyrenderer.renderer.isVisible) {
+RaycastHit hit;
+			// Check if you see "BlindMan" directly, if so - play statik sound, if not, pause the sound
+if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),out hit)) {
+				if (hit.collider.name=="BlindMan") if (!statik.isPlaying) statik.Play();
 			} else statik.Pause();
 }   else statik.Pause();
 
-		////// 
+// Loose health if you see the Enemy (statik is playing)
+if (statik.isPlaying) health = health - 0.1f;
+
+///// Enemy in close range ---------------------------------------------------------------------
+if ((transform.position-enemyrenderer.transform.position).magnitude<1.3f) {
+	// Loose health
+	health = health - 0.3f;
+	// Shake the camera every conter cycle to imitate player being hit
+	if (hitcounter>50) {Shake(); hitcounter=0;}
+	hitcounter++;		
+}
+	// 80+ HP  Breath EFFECTS
+	if ( health>80) {
+	breath.clip=breath100;
+	if (!breath.isPlaying) breath.Play();
+	}
+		// 20+ HP Breath EFFECTS
+	if (health<80 && health>20) {
+		breath.clip=breath70;
+		if (!breath.isPlaying) breath.Play();
+	}
+		// CRITICAL HP Breath EFFECTS
+	if (health<20) {
+		breath.clip=breath20;
+		if (!breath.isPlaying)breath.Play();
+	}
+
+//////////// Heartbeat effects - Fast/slow ------------------
+		counter = counter+0.1f;
+	if (counter>20 && health>80) {
+		heart.Stop();
+		heart.PlayOneShot(heartbeatSlow,1f);
+		counter=0;
+
+	}
+	if (counter > 20 && health < 80) {
+						heart.Stop ();
+						heart.PlayOneShot (heartbeatFast, 1f);
+						counter = 0;
+				}
+		//----------------------------------------------------------
+
+if (health > 0) {
+			// Health regeneration per time interval while the player is not dead
+	health = health + 0.03f;
+} else {
+			// IF the player died, scream and allow restart
+	dead = true;
+	enemy.audio.PlayOneShot(SCREAM,1f);
+	if (Input.GetKey (KeyCode.R)) {
+		
+		Application.LoadLevel (0);
+		
+	}
+}
 	
 
-
-
-		///// IF ENEMY IS CLOSE
-		if ((transform.position-enemyrenderer.transform.position).magnitude<1.3f) {
-			health = health - 0.3f;
-			if (hitcounter>50) {Shake(); hitcounter=0;}
-			hitcounter++;
-			
-		}
-		
-		if ( health>80) {
-
-			breath.clip=breath100;
-			if (!breath.isPlaying) breath.Play();
-		}
-		
-		if (health<80 && health>20) {
-			breath.clip=breath70;
-			if (!breath.isPlaying) breath.Play();
-		}
-		if (health<20) {
-			breath.clip=breath20;
-			if (!breath.isPlaying)breath.Play();
-		}
-		
-		
-		if (health > 0) {
-						health = health + 0.03f;
-		} else {
-			dead = true;
-			 enemy.audio.PlayOneShot(SCREAM,1f);
-			if (Input.GetKey (KeyCode.R)) {
-								
-								Application.LoadLevel (0);
-
-						}
-				}
-
-
-
-
-		if (health > 100f)
-			health = 100f;
-		
-
-
-		counter = counter+0.1f;
-		if (counter>20 && health>80) {
-			heart.Stop();
-			heart.PlayOneShot(heartbeatSlow,1f);
-			counter=0;
-
-		}
-		if (counter>20 && health<80) {
-			heart.Stop();
-			heart.PlayOneShot(heartbeatFast ,1f);
-			counter=0;
-		}
-
+if (health > 100f) health = 100f; // Limit max hp to 100
 	}
 
 	void OnGUI() {
+		// Set GUI style to desited one
 		GUIStyle myStyle = new GUIStyle();
 		myStyle.font = myFont;
 		myStyle.fontSize = 100;
 		myStyle.normal.textColor = Color.white;
-	
 		GUI.color = new Color(255, 255, 255, 1-health/100);
-		//GUI.contentColor = Color.black;
+	
 		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), blackgui);
+
+		// If the player is dead - display "dead" message
 		if (dead == true) {
 		GUI.Label(new Rect( Screen.width/2-400, Screen.height/2-100, Screen.width, Screen.height), "Bobby, please be quiet..." +
 			"\n\n"+
@@ -147,19 +126,17 @@ public class PlayerHealth : MonoBehaviour {
 			"",myStyle);
 
 				}
-		GUI.Label(new Rect(10, 10, 100, 20), health.ToString());
-		 
+
+		//GUI.Label(new Rect(10, 10, 100, 20), health.ToString()); // Display health (debug) 
 	}
 
-	void Shake() {
-		
-		float elapsed = 0.0f;
-		float magnitude = 40f;
-		//print ("yolo");
+	// Shake camera
+void Shake() {
+float elapsed = 0.0f;
+float magnitude = 40f;
 
-		
-		while (elapsed < shakeduration) {
-			
+while (elapsed < shakeduration) {
+			// increase elapsed time
 			elapsed += Time.deltaTime;          
 			
 			float percentComplete = elapsed / shakeduration;         
@@ -172,6 +149,7 @@ public class PlayerHealth : MonoBehaviour {
 			x *= magnitude * damper;
 			y *= magnitude * damper;
 			z *= magnitude * damper;
+			// Shake camera by adding force to the camera rigidbody
 			transform.rigidbody.AddForce( new Vector3(x, y, z));
 			
 
