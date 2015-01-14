@@ -74,6 +74,7 @@
      <None Include="Assets\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
      <None Include="Assets\Stuff\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\New Stuff\CactusPack\Readme.txt" />
+     <None Include="Assets\Free_Rocks\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Stuff\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\ProCore\Prototype\Shader\UnlitColor.shader" />
      <None Include="Assets\rayav_assets\pipelinesconfig.txt" />

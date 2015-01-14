@@ -31,9 +31,11 @@ if (Physics.Raycast(raycheck, hitcheck) && hitcheck.collider.gameObject.tag != "
 
 if(Input.GetMouseButtonDown(0)  && guipick){
 if (!hitcheck.collider.gameObject.audio.isPlaying) {
+hitcheck.collider.gameObject.tag="Untagged";
 hitcheck.collider.gameObject.audio.Play();
 door.rigidbody.constraints=RigidbodyConstraints.None;
 door.audio.Play();
+
 }
 }
 
