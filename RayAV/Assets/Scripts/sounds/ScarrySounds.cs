@@ -74,7 +74,8 @@ public class ScarrySounds : MonoBehaviour {
 			GUI.color = new Color (255, 255, 255, 0.95f);
 			
 			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), tutorialgui);
-			GUI.Label(new Rect( Screen.width/2-400, Screen.height/2-200, Screen.width, Screen.height), "Move using WSAD\nRun using Left Shift\nJump using Space\n\n" +
+			GUI.Label(new Rect( Screen.width/2-400, Screen.height/2-200, Screen.width, Screen.height), "This game is best played with headphones\n"+
+			          "Move using WSAD\nRun using Left Shift\nJump using Space\n\n" +
 			          "Pick up and use objects by left clicking mouse\n"+
 			          "Throw clicking left again, release clicking right\n\n"+
 			          "Try to esacape... But no matter what...\n"+

@@ -97,7 +97,7 @@ if (health > 0) {
 } else {
 			// IF the player died, scream and allow restart
 	dead = true;
-	enemy.audio.PlayOneShot(SCREAM,1f);
+	audio.PlayOneShot(SCREAM,1f);
 	if (Input.GetKey (KeyCode.R)) {
 				Audio.Shutdown ();
 				Audio.UnloadLibrary ();

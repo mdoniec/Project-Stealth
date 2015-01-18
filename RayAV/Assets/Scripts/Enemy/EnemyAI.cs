@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using rayav_csharp;
+using RayaUtility;
 
 public class EnemyAI : MonoBehaviour {
 
@@ -14,6 +16,7 @@ public class EnemyAI : MonoBehaviour {
 
 	// AI, movement, sound parameters
 	public Transform target;
+	public Transform oldtarget;
 	public AudioClip scream;
 	public NavMeshAgent agent;
 	public float incomingsound;
@@ -23,6 +26,8 @@ public class EnemyAI : MonoBehaviour {
 	public int randomspawn;
 	public int vanish;
 
+	public SoundSampleHandle rayascream;
+	public SoundSourceHandle enemysource;
 
 	void Start () {
 		// Set starting parameters
@@ -30,10 +35,18 @@ public class EnemyAI : MonoBehaviour {
 		oldrot = transform;
 		vanish=600;
 		randomspawn=0;
+
+
+		rayascream=Audio.RegisterSample ("Assets/Music/SAMPLES/SCREAM.wav");
+		while (!Audio.IsSoundSampleLoaded(rayascream)) {}
+		rayav_csharp.Vector3 sourcePosition = RayaUtility.RayaUtility.rayaPosition (transform.position);
+		rayav_csharp.Vector3 translation = new rayav_csharp.Vector3 (1, 0, 0);
+		enemysource = Audio.AddSoundSource (rayav_csharp.Vector3.Add (sourcePosition,translation), SoundSourceAttenuation.DivByDistance);
 	}
 	
 
 	void Update () {
+
 	}
 
 	void FixedUpdate () {
@@ -52,10 +65,12 @@ if (counter > 8) {
 	// START WITH PIANO PLAYING
 
 	if (piano.audio.isPlaying) {
-
+	
+			Audio.SetSoundSourcePosition (enemysource , RayaUtility.RayaUtility.rayaPosition (transform.position));
 	// Update enemy's destination and scream if destination is further away
 	agent.SetDestination (target.position);
-	if ((agent.destination-target.position).magnitude>0.4) if (!audio.isPlaying) audio.PlayOneShot(scream, 1);
+			if ( oldtarget!=target) {oldtarget=target;//audio.PlayOneShot(scream, 1);
+				 Audio.Play(rayascream,enemysource);}
 
 	// Increase vanish counter if enemy is not visible to the camera (not rendered, which adds even more surprise element)
 	if (!body.renderer.isVisible) {vanish++; }
@@ -64,7 +79,7 @@ if (counter > 8) {
 	if (vanish>700 && incomingsound<2) {
 				// Reset threat level and play scream
 				incomingsound=0.7f;
-				if (!audio.isPlaying) audio.PlayOneShot(scream, 1);
+
 
 				// RESPAWN ===============================================
 				// First, "special" respawn at spawn1 with piano as target
@@ -74,6 +89,9 @@ if (counter > 8) {
 				if (randomspawn==2) {transform.position=spawn2.position; target=spawn3; agent.enabled = true; agent.ResetPath();}
 				if (randomspawn==3) {transform.position=spawn3.position; target=spawn1; agent.enabled = true; agent.ResetPath();}
 				transform.rotation=oldrot.rotation;
+
+				if (!audio.isPlaying) {audio.PlayOneShot(scream, 1);
+					Audio.Play(rayascream,enemysource);}
 
 				// Randomize next respawn spot, reset "vanish" counter
 				randomspawn = (int)Random.Range(1f, 4F);

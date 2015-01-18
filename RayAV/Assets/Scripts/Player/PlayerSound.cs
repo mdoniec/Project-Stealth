@@ -71,10 +71,10 @@ void OnCollisionStay( Collision collisionInfo)
 	}
 
 
-void FixedUpdate () {
+void Update () {
 		Audio.SetSoundSourcePosition (steps, RayaUtility.RayaUtility.rayaPosition (transform.position));
 		counter=counter + 3;
-		print (yo.gameObject.name);
+
 
 		if (yo.gameObject.name=="Corridor Grey Carpet" && 270-counter<rigidbody.velocity.magnitude*130) {
 			counter=0;
