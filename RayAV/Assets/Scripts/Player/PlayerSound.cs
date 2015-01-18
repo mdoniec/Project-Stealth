@@ -9,7 +9,7 @@ public class PlayerSound : MonoBehaviour {
 
 
 
-
+	public Collision yo;
 	//string colidedsurface ;
 	int maxSpeed = 80;
 	int counter = 0 ;
@@ -17,79 +17,122 @@ public class PlayerSound : MonoBehaviour {
 	
 	public SoundSampleHandle wooden ;
 	public SoundSampleHandle carpet ;
-	public SoundSampleHandle shower ;
+	public SoundSampleHandle auditorium ;
+	public SoundSampleHandle stone;
+	public SoundSampleHandle pipe;
+	public SoundSampleHandle grass;
+	public SoundSampleHandle sand;
+
+
+
+
 	private SoundSourceHandle steps;
+	float stonevolume = 1f;
+	float woodvolume = 0.6f;
 	float carpetvolume = 0.2f;
+	public float volume;
 
 
 void Start () {
-		//Audio.Initialize ("Assets/example_config.rconf");
-				//Audio.SetReceiver (RayaUtility.RayaUtility.fromUnityVector3 (transform.position),
-		//                   RayaUtility.RayaUtility.fromUnityVector3 (transform.forward),
-		//                   RayaUtility.RayaUtility.fromUnityVector3 (transform.up));
+
+
 
 
 
 
 		//RAYAV SOURCES
 		//wooden=Audio.RegisterSample ("Assets/rayav_assets/wavs/Gun.ogg");
-		wooden=Audio.RegisterSample ("Assets/Music/FootstepsSoundsCarpetPack/footsteps_walk_carpet_3.wav");
-		//carpet=Audio.RegisterSample ("Assets/Music/FootstepsSoundsCarpetPack/footsteps_walk_carpet_3.wav");
-		shower=Audio.RegisterSample ("Assets/Music/FootstepsSoundsCarpetPack/shower - prysznic 4.wav");
+
+		wooden=Audio.RegisterSample ("Assets/Music/SAMPLES/footsteps_walk_carpet_3.wav");
+		auditorium=Audio.RegisterSample ("Assets/Music/SAMPLES/footsteps_walk_carpet_2.wav");
+		stone=Audio.RegisterSample ("Assets/Music/SAMPLES/StoneStep.wav");
+		pipe=Audio.RegisterSample ("Assets/Music/SAMPLES/MetalBang.wav");
+		grass=Audio.RegisterSample ("Assets/Music/SAMPLES/GrassStep.wav");
+		sand=Audio.RegisterSample ("Assets/Music/SAMPLES/SandStep.wav");
+		//shower=Audio.RegisterSample ("Assets/Music/FootstepsSoundsCarpetPack/shower - prysznic 4.wav");
+		while (!Audio.IsSoundSampleLoaded(wooden)) {}
 
 
-		rayav_csharp.Vector3 sourcePosition = RayaUtility.RayaUtility.fromUnityVector3 (transform.position);
+		rayav_csharp.Vector3 sourcePosition = RayaUtility.RayaUtility.rayaPosition (transform.position);
 		rayav_csharp.Vector3 translation = new rayav_csharp.Vector3 (1, 0, 0);
 		steps = Audio.AddSoundSource (rayav_csharp.Vector3.Add (sourcePosition,translation), SoundSourceAttenuation.DivByDistance);
-		Audio.SetSourceVolume (steps, 0.1f);
+
 
 				
 		}
-void OnCollisionStay(Collision collisionInfo) 
-	{
+void OnCollisionStay( Collision collisionInfo) 
+	{yo = collisionInfo;
 
 
-//		if (collisionInfo.gameObject.name=="Map" && !Audio.IsSoundSampleLoaded(wooden)) {
-//
-//			if (rigidbody.velocity.magnitude*100>maxSpeed/5 ) Audio.Play(wooden,steps);
-//			} else 
-//				if (rigidbody.velocity.magnitude*100<maxSpeed/5 || collisionInfo.gameObject.name != "Map") Audio.StopSource(steps);
 
 
-//		if (collisionInfo.gameObject.name=="Corridor Grey Carpet" && !audio.isPlaying) {
-//			audio.clip=carpet;
-//			audio.volume=carpetvolume;
-//			if (rigidbody.velocity.magnitude*100>maxSpeed/5 ) audio.Play();
-//		} else 
-//			if (rigidbody.velocity.magnitude*100<maxSpeed/5 || collisionInfo.gameObject.name != "Map") audio.Pause ();
-//			
- 	}
-
-
-void Update () {
-		Audio.SetSoundSourcePosition (steps, RayaUtility.RayaUtility.fromUnityVector3 (transform.position));
-
-		//Audio.SetReceiver(RayaUtility.RayaUtility.fromUnityVector3(transform.position),
-		//                RayaUtility.RayaUtility.fromUnityVector3(transform.forward),
-		//                  RayaUtility.RayaUtility.fromUnityVector3(transform.up));
-
-
-		Audio.Play(wooden,steps);
-
-	
-		counter++;
-
-				if (counter % 400== 0) {
-					counter = 0;
-			Audio.Flush();		}
+		
+		
 	}
 
 
+void FixedUpdate () {
+		Audio.SetSoundSourcePosition (steps, RayaUtility.RayaUtility.rayaPosition (transform.position));
+		counter=counter + 3;
+		print (yo.gameObject.name);
 
-	//void OnGUI() {
-	//		GUI.Label(new Rect(10, 10, 100, 20), rigidbody.velocity.magnitude.ToString());
-	//}
+		if (yo.gameObject.name=="Corridor Grey Carpet" && 270-counter<rigidbody.velocity.magnitude*130) {
+			counter=0;
+			Audio.SetSourceVolume (steps, carpetvolume);
+
+			if (rigidbody.velocity.magnitude*100>maxSpeed/7 ) Audio.Play(wooden,steps);
+		} 
+		if (yo.gameObject.name=="Auditorium Panel Floor" && 270-counter<rigidbody.velocity.magnitude*130) {
+			counter=0;
+			Audio.SetSourceVolume (steps, carpetvolume);
+
+			if (rigidbody.velocity.magnitude*100>maxSpeed/7 ) Audio.Play(auditorium,steps);
+		} 
+		
+		if (yo.gameObject.name=="Stone floor" && 270-counter<rigidbody.velocity.magnitude*130) {
+			counter=0;
+			Audio.SetSourceVolume (steps, stonevolume);
+		
+			if (rigidbody.velocity.magnitude*100>maxSpeed/7 ) Audio.Play(stone,steps);
+		} 
+		if (yo.gameObject.name=="BigPipe" && 270-counter<rigidbody.velocity.magnitude*130) {
+			counter=0;
+
+			if (rigidbody.velocity.magnitude*100>maxSpeed/7 ) Audio.Play(pipe,steps);
+		} 
+
+		if (yo.gameObject.name=="Grass" && 270-counter<rigidbody.velocity.magnitude*130) {
+			counter=0;
+			Audio.SetSourceVolume (steps, woodvolume);
+
+			if (rigidbody.velocity.magnitude*100>maxSpeed/7 ) Audio.Play(grass,steps);
+		} 
+
+		if (yo.gameObject.name=="Sand Floor" && 270-counter<rigidbody.velocity.magnitude*130 ||
+		    yo.gameObject.name=="Towel" && 270-counter<rigidbody.velocity.magnitude*130) {
+			counter=0;
+			Audio.SetSourceVolume (steps, woodvolume);
+
+			if (rigidbody.velocity.magnitude*100>maxSpeed/7 ) Audio.Play(sand,steps);
+		} 
+		
+
+		
+		if (yo.gameObject.name=="Map" && 270-counter<rigidbody.velocity.magnitude*130) {
+			counter=0;
+			Audio.SetSourceVolume (steps, woodvolume);
+			volume = woodvolume;
+			if (rigidbody.velocity.magnitude*100>maxSpeed/7 ) Audio.Play(wooden,steps);
+		} //else 
+			//if (rigidbody.velocity.magnitude*100<maxSpeed/7) Audio.StopSource(steps);
 
 
+
+
+	
+
+	
+
+	}
 }
 

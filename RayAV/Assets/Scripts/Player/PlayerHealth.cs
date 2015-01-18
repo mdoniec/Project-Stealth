@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using rayav_csharp;
+using UnityEngine;
 using System.Collections;
+
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -42,7 +44,7 @@ public class PlayerHealth : MonoBehaviour {
 if (enemyrenderer.renderer.isVisible) {
 RaycastHit hit;
 			// Check if you see "BlindMan" directly, if so - play statik sound, if not, pause the sound
-if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),out hit)) {
+if (Physics.Raycast(transform.position, transform.TransformDirection(UnityEngine.Vector3.forward),out hit)) {
 				if (hit.collider.name=="BlindMan") if (!statik.isPlaying) statik.Play();
 			} else statik.Pause();
 }   else statik.Pause();
@@ -97,7 +99,8 @@ if (health > 0) {
 	dead = true;
 	enemy.audio.PlayOneShot(SCREAM,1f);
 	if (Input.GetKey (KeyCode.R)) {
-		
+				Audio.Shutdown ();
+				Audio.UnloadLibrary ();
 		Application.LoadLevel (0);
 		
 	}
@@ -150,7 +153,7 @@ while (elapsed < shakeduration) {
 			y *= magnitude * damper;
 			z *= magnitude * damper;
 			// Shake camera by adding force to the camera rigidbody
-			transform.rigidbody.AddForce( new Vector3(x, y, z));
+			transform.rigidbody.AddForce( new UnityEngine.Vector3(x, y, z));
 			
 
 		}

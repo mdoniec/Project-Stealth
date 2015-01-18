@@ -1,5 +1,5 @@
 #--------------Scene file-----------------------------
-scene file=Assets/MAPS/AcuMap.rmf
+scene file=Assets/MAPS/AcuMap.obj
 
 #------------------Geometry options--------------------
 adfrustum accuracy=4

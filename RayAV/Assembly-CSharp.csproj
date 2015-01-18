@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Enemy model\FreeCharacter\BasicLocomotionPack\LocomotionScript.cs" />
      <Compile Include="Assets\ProCore\Prototype\Scripts\RebuildMeshOnWake.cs" />
-     <Compile Include="Assets\ScarrySounds.cs" />
      <Compile Include="Assets\Scripts\Actions\LampFlicker.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
      <Compile Include="Assets\Scripts\Player\MouseLook.cs" />
@@ -56,8 +55,11 @@
      <Compile Include="Assets\Scripts\Player\PlayerSound.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Rayav.cs" />
      <Compile Include="Assets\Scripts\Player\RayaUtility.cs" />
+     <Compile Include="Assets\Scripts\sounds\CollisionRayav.cs" />
      <Compile Include="Assets\Scripts\sounds\CollisionSound.cs" />
      <Compile Include="Assets\Scripts\sounds\DoorSound.cs" />
+     <Compile Include="Assets\Scripts\sounds\ScarrySounds.cs" />
+     <Compile Include="Assets\Scripts\sounds\SourcesQueue.cs" />
      <Compile Include="Assets\StepsThreat.cs" />
      <Compile Include="Assets\Stuff\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <Compile Include="Assets\Stuff\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />

@@ -55,7 +55,7 @@ if (counter > 8) {
 
 	// Update enemy's destination and scream if destination is further away
 	agent.SetDestination (target.position);
-	if ((agent.destination-target.position).magnitude>0.6) if (!audio.isPlaying) audio.PlayOneShot(scream, 1);
+	if ((agent.destination-target.position).magnitude>0.4) if (!audio.isPlaying) audio.PlayOneShot(scream, 1);
 
 	// Increase vanish counter if enemy is not visible to the camera (not rendered, which adds even more surprise element)
 	if (!body.renderer.isVisible) {vanish++; }
