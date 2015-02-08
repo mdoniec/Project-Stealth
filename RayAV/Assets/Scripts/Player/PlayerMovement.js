@@ -4,6 +4,7 @@ var maxSpeed = 80;
 var runSpeed = 160;
 var JumpForce =5000;
 var JumpInterval = 200;
+var Spawn1 : GameObject;
 function Start () {
 Screen.showCursor = false;
 }
@@ -53,6 +54,9 @@ rigidbody.AddForce(transform.up*JumpForce);
 JumpInterval=0;
 }
 }
+//HACKS
+	if (Input.GetKey("i")&&Input.GetKey("o")&&Input.GetKey("p")) transform.position = Spawn1.transform.position; 
+	
 
 
 }

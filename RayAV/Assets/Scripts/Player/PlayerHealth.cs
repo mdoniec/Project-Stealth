@@ -41,74 +41,92 @@ public class PlayerHealth : MonoBehaviour {
 
 	void FixedUpdate() {
 // Player is seeing the Enemy
-if (enemyrenderer.renderer.isVisible) {
-RaycastHit hit;
-			// Check if you see "BlindMan" directly, if so - play statik sound, if not, pause the sound
-if (Physics.Raycast(transform.position, transform.TransformDirection(UnityEngine.Vector3.forward),out hit)) {
-				if (hit.collider.name=="BlindMan") if (!statik.isPlaying) statik.Play();
-			} else statik.Pause();
-}   else statik.Pause();
+				if (enemyrenderer.renderer.isVisible) {
+						RaycastHit hit;
+						// Check if you see "BlindMan" directly, if so - play statik sound, if not, pause the sound
+						if (Physics.Raycast (transform.position, transform.TransformDirection (UnityEngine.Vector3.forward), out hit)) {
+								if (hit.collider.name == "BlindMan")
+								if (!statik.isPlaying)
+										statik.Play ();
+						} else
+								statik.Pause ();
+				} else
+						statik.Pause ();
 
 // Loose health if you see the Enemy (statik is playing)
-if (statik.isPlaying) health = health - 0.1f;
+				if (statik.isPlaying)
+						health = health - 0.1f;
 
 ///// Enemy in close range ---------------------------------------------------------------------
-if ((transform.position-enemyrenderer.transform.position).magnitude<1.3f) {
-	// Loose health
-	health = health - 0.3f;
-	// Shake the camera every conter cycle to imitate player being hit
-	if (hitcounter>50) {Shake(); hitcounter=0;}
-	hitcounter++;		
-}
-	// 80+ HP  Breath EFFECTS
-	if ( health>80) {
-	breath.clip=breath100;
-	if (!breath.isPlaying) breath.Play();
-	}
-		// 20+ HP Breath EFFECTS
-	if (health<80 && health>20) {
-		breath.clip=breath70;
-		if (!breath.isPlaying) breath.Play();
-	}
-		// CRITICAL HP Breath EFFECTS
-	if (health<20) {
-		breath.clip=breath20;
-		if (!breath.isPlaying)breath.Play();
-	}
+				if ((transform.position - enemyrenderer.transform.position).magnitude < 1.3f) {
+						// Loose health
+						health = health - 0.3f;
+						// Shake the camera every conter cycle to imitate player being hit
+						if (hitcounter > 50) {
+								Shake ();
+								hitcounter = 0;
+						}
+						hitcounter++;		
+				}
+				// 80+ HP  Breath EFFECTS
+				if (health > 80) {
+						breath.clip = breath100;
+						if (!breath.isPlaying)
+								breath.Play ();
+				}
+				// 20+ HP Breath EFFECTS
+				if (health < 80 && health > 20) {
+						breath.clip = breath70;
+						if (!breath.isPlaying)
+								breath.Play ();
+				}
+				// CRITICAL HP Breath EFFECTS
+				if (health < 20) {
+						breath.clip = breath20;
+						if (!breath.isPlaying)
+								breath.Play ();
+				}
 
 //////////// Heartbeat effects - Fast/slow ------------------
-		counter = counter+0.1f;
-	if (counter>20 && health>80) {
-		heart.Stop();
-		heart.PlayOneShot(heartbeatSlow,1f);
-		counter=0;
+				counter = counter + 0.1f;
+				if (counter > 20 && health > 80) {
+						heart.Stop ();
+						heart.PlayOneShot (heartbeatSlow, 1f);
+						counter = 0;
 
-	}
-	if (counter > 20 && health < 80) {
+				}
+				if (counter > 20 && health < 80) {
 						heart.Stop ();
 						heart.PlayOneShot (heartbeatFast, 1f);
 						counter = 0;
 				}
-		//----------------------------------------------------------
+				//----------------------------------------------------------
 
-if (health > 0) {
-			// Health regeneration per time interval while the player is not dead
-	health = health + 0.03f;
-} else {
-			// IF the player died, scream and allow restart
-	dead = true;
-	audio.PlayOneShot(SCREAM,1f);
-	if (Input.GetKey (KeyCode.R)) {
-				Audio.Shutdown ();
-				Audio.UnloadLibrary ();
-		Application.LoadLevel (0);
+				if (health > 0) {
+						// Health regeneration per time interval while the player is not dead
+						health = health + 0.03f;
+				} else {
+						// IF the player died, scream and allow restart
+						dead = true;
+						audio.PlayOneShot (SCREAM, 1f);
+						if (Input.GetKey (KeyCode.R)) {
+								Audio.Shutdown ();
+								Audio.UnloadLibrary ();
+								Application.LoadLevel (0);
 		
-	}
-}
+						}
+				}
+	
+//////////// DEV MODE CHEATS
+				if (Input.GetKey ("j") && Input.GetKey ("k") && Input.GetKey ("l")) health = 100f; // Limit max hp to 100
 	
 
-if (health > 100f) health = 100f; // Limit max hp to 100
-	}
+
+
+				if (health > 100f)
+						health = 100f; // Limit max hp to 100
+
+		}
 
 	void OnGUI() {
 		// Set GUI style to desited one
